@@ -242,12 +242,7 @@ void loop() {
   display.setTextSize(1);
   display.setTextColor(WHITE);
   display.setCursor(0,0);
-  /*display.println("MARVRICK");
-  display.setTextSize(1);
-  display.setTextColor(WHITE);
-  display.println("Loves!");        // un println comme pour écrire sur le port série
-  display.println("BRIANNA");
-  */
+  
   display.print("Temperature is: ");display.print(f);
   display.print("Humidity is: "); display.println(h);
   if (f < 75)
