@@ -15,7 +15,7 @@ Adafruit_SSD1306 display(OLED_RESET);
 #define DELTAY 2
 
 
-#define LOGO16_GLCD_HEIGHT 16 
+#define LOGO16_GLCD_HEIGHT 16
 #define LOGO16_GLCD_WIDTH  16 0
 
 
@@ -48,19 +48,19 @@ static unsigned char PROGMEM const logo16_glcd_bmp[] =
 
 
 
-void setup()   {   
+void setup()   {
   Serial.begin(9600);
   Serial.println("DHTxx test!");
-  dht.begin();        
-  
-  pinMode(LED, OUTPUT);     
+  dht.begin();
+
+  pinMode(LED, OUTPUT);
 
   delay(200);
 
   // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3D (for the 128x64)
   // init done
-  
+
   display.display(); // show splashscreen
   delay(2000);
   display.clearDisplay();   // clears the screen and buffer
@@ -91,8 +91,8 @@ void loop() {
   // Compute heat index in Celsius (isFahreheit = false)
   float hic = dht.computeHeatIndex(t, h, false);
 
-  
-  display.clearDisplay(); 
+
+  display.clearDisplay();
   // text display tests
   display.setTextSize(1);
   display.setTextColor(WHITE);
@@ -102,16 +102,15 @@ void loop() {
   if (f < 75)
     {
         digitalWrite(LED, HIGH);
-        display.println("It's Brick");
+        display.println("It's Cold");
       }
       else
       {
          digitalWrite(LED, LOW);
-         display.print("It's Blazin'");
+         display.print("It's Hot");
         }
   display.display();
   delay(2000);
-  display.clearDisplay(); 
+  display.clearDisplay();
 
 }
-
